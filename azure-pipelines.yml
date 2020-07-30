@@ -21,7 +21,7 @@ stages:
         containerRegistry: 'docker-shuttle-connection-project'
         repository: 'agunuworld/shuttle-docker-devops'
         command: 'buildAndPush'
-        Dockerfile: '**/Dockerfile'
+        Dockerfile: '$(Build.SourcesDirectory)/src/Dockerfile'
         tags: '$(tag)'
     - task: CopyFiles@2
       inputs:
