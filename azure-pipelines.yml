@@ -15,18 +15,23 @@ stages:
     displayName: Build
     pool:
       vmImage: 'ubuntu-latest'
-- task: DockerCompose@0
-  inputs:
-    containerregistrytype: 'Container Registry'
-    dockerRegistryEndpoint: 'docker-shuttle-connection-project'
-    dockerComposeFile: '**/docker-compose.yml'
-    projectName: 'agunuworld/shuttle-docker-devops'
-    action: 'Run a Docker Compose command'
+  - task: DockerCompose@0
+    inputs:
+      containerregistrytype: 'Container Registry'
+      dockerRegistryEndpoint: 'docker-shuttle-connection-project'
+      dockerComposeFile: '**/docker-compose.yml'
+      action: 'Run a Docker Compose command'
   
     # - task: Docker@2
     #   inputs:
     #     containerRegistry: 'docker-shuttle-connection-project'
-    #     repository: 'agunuworld/shuttle-docker-devops'
+  #   #     repository: '- task: DockerCompose@0
+  # inputs:
+  #   containerregistrytype: 'Container Registry'
+  #   dockerRegistryEndpoint: 'docker-shuttle-connection-project'
+  #   dockerComposeFile: '**/docker-compose.yml'
+  #   projectName: 'agunuworld/shuttle-docker-devops'
+  #   action: 'Run a Docker Compose command''
     #     command: 'buildAndPush'
     #     Dockerfile: '$(Build.SourcesDirectory)/src/Dockerfile'
     #     tags: '$(tag)'
